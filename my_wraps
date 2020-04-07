@@ -1,9 +1,9 @@
 def wraps(f):
-  def my_wrapper(*args, **kwargs):
-    return f(*args, **kwargs)
-  my_wrapper.__name__ = f.__name__
-  my_wrapper.__module__ = f.__module__
-  my_wrapper.__doc__ = f.__doc__
-  my_wrapper.__qualname__ = f.__qualname__
-  my_wrapper.__annotations__ = f.__annotations__
-  return my_wrapper
+  def my_wrap(real_f):
+    real_f.__name__ = f.__name__
+    real_f.__module__ = f.__module__
+    real_f.__doc__ = f.__doc__
+    real_f.__qualname__ = f.__qualname__
+    real_f.__annotations__ = f.__annotations__
+    return real_f
+  return my_wrap
