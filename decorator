@@ -1,0 +1,9 @@
+def is_correct(*args):
+    def real_decorator(f):
+        data = f()
+        for arg in args:
+            if arg not in data.keys():
+              a = None
+              return lambda : a
+        return f
+    return real_decorator
