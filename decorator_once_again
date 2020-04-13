@@ -1,0 +1,13 @@
+import datetime
+
+
+def add_date(format):
+  def get_func(f):
+    def add_time(*args, **kwargs):
+      dicti = f(*args, **kwargs)
+      current_time = datetime.datetime.now()
+      wanted_time = current_time.strftime(format)
+      dicti['date'] = wanted_time
+      return dicti
+    return add_time
+  return get_func
